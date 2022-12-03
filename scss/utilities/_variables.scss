@@ -1,0 +1,77 @@
+/*texto*/
+$fuente: 'Quattrocento Sans', sans-serif, monospace;
+$fuente-peq: 0.9rem;
+$fuente-tit: 0.98rem;
+$fuente-med: 1rem;
+$fuente-gde: 1.7rem;
+$italic-style: italic;
+$text-center: center;
+$text-left: left;
+/*colores*/
+$text-color:#ffffffbe;
+$text-color2:#000000;
+$links-color:#a8fbfb;
+$background-color: #1B1F24;
+$header-b-color: #363636;
+$header-sec-b-color: #cccccc4a;
+$border-color: #cccccc88;
+$botones-b-color: #262627c3;
+$sombreado-color:#000000bf;
+$background-gradient: linear-gradient(to right bottom, #2c3138, #282c33, #23282e, #1f2329, #1b1f24);
+$mensaje-color: #ffffff;
+$mensaje-bg-color: #1b1f24ab;
+/*bordes*/
+$border-style: 1px solid $border-color;
+$round-border-radius: 10px;
+$borde-animacion-tit:.15em solid $links-color;
+/*sombreados*/
+$sombreado-titulo: inset 0 0 0 1px $sombreado-color;
+$sombreado-header: 0px 3px 5px 0px $sombreado-color;
+$sombreado-botones: 0px 0px 2px 1px $links-color;
+$sombreado-main: 3px 3px 5px 0px $sombreado-color;
+$sombreado-main-gradient: #00000040 0px 54px 55px, #0000001f 0px -12px 30px, #0000001f 0px 4px 6px, #0000002b 0px 12px 13px, #00000017 0px -3px 5px;
+$sombreado-footer: 0px -3px 5px 0px $sombreado-color;
+$sombreado-scrollbar: inset 0 0 5px $header-sec-b-color; 
+/*mapas*/
+$heights:(
+    titulo: 3.5vh,
+    titulo-mq: 4.5vh,
+    cabecera-titulo: 7vh,
+    logo: 40px,  
+    h-60vh: 60vh,
+    h-75vh: 75vh,
+);
+$widths:(
+    cabecera: 100%,
+    w-55vw: 50vw,
+    w-60vw: 60vw,
+    w-80vw: 80vw,
+    logo: 40px,
+    contenido-info: 35vw,
+    contenido-links-li: 20vw,
+    max-width-30vw: 30vw,
+    max-width-80vw: 80vw,
+    contenido-info-mq: 80%,
+    pie-info-disclaimer: 80vw,
+    pie-links-img: 1.3vw,
+    pie-links-img-mq: 8vw,
+    carousel:90%,
+);
+$margins:(
+    0:0,
+    auto: auto,
+    0-auto: 0 auto,
+    top-0: 0px,
+    top-2: 2px,
+    top-3: 3px,
+    top-8: 8px,
+    top-10: 10px,
+);
+$paddings:(
+    p-2vw: 2vw,
+    p-6vw: 6vw,
+    bottom-6r: 6rem,
+    bottom-10r: 10rem,
+    bottom-3: 3px,
+    top-6r: 6rem,
+);

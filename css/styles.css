@@ -1,0 +1,38 @@
+/*texto*/
+/*colores*/
+/*bordes*/
+/*sombreados*/
+/*mapas*/
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Quattrocento Sans", sans-serif, monospace;
+  color: #ffffff;
+  background-color: #1B1F24;
+  padding-top: 6rem;
+  padding-bottom: 6rem; }
+  @media screen and (max-width: 768px) {
+    body {
+      padding-bottom: 10rem; } }
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+  width: 10px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #cccccc4a;
+  border-radius: 10px; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cccccc4a;
+  border-radius: 10px; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a8fbfb; }

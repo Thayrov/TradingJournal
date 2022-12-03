@@ -1,0 +1,50 @@
+@mixin body ($bgc:$background-color,$pt:map-get($paddings,top-6r),$pb:map-get($paddings,bottom-6r)) {
+    font-family: $fuente;
+    color: $mensaje-color;
+    background-color: $bgc;
+    padding-top: $pt;
+    padding-bottom: $pb;
+    @media screen and (max-width:768px){
+    padding-bottom: map-get($paddings,bottom-10r);
+    }
+}
+@mixin estilo-cabecera ($width, $b-ground, $color) {
+    width: $width;
+    background-color: $b-ground;
+    color: $color;
+}
+@mixin sombra ($shadow:$sombreado-main) {
+    @if $shadow == -botones{
+        -webkit-box-shadow: $sombreado-botones;
+        -moz-box-shadow: $sombreado-botones;
+        box-shadow: $sombreado-botones;
+    }@else if $shadow == -header{
+        -webkit-box-shadow: $sombreado-header;
+        -moz-box-shadow: $sombreado-header;
+        box-shadow: $sombreado-header;
+    }@else if $shadow == -main{
+        -webkit-box-shadow: $sombreado-main;
+        -moz-box-shadow: $sombreado-main;
+        box-shadow: $sombreado-main;
+    }@else if $shadow == -footer{
+        -webkit-box-shadow: $sombreado-footer;
+        -moz-box-shadow: $sombreado-footer;
+        box-shadow: $sombreado-footer;
+    }@else{
+        -webkit-box-shadow: $shadow;
+        -moz-box-shadow: $shadow;
+        box-shadow: $shadow;
+    }
+}
+@mixin borde ($border:$border-style,$radius:$round-border-radius) {
+    border: $border;
+    border-radius: $radius;
+}
+@mixin centrado ($mx:map-get($margins,auto)){
+    margin-left: $mx;
+    margin-right: $mx;
+}
+@mixin logo ($height:map-get($heights,logo),$width:map-get($widths,logo)){
+    height: $height;
+    width: $width;
+}
