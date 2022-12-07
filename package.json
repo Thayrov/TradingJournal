@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "node-sass --include-path scss scss/styles.scss css/styles.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
-
   },
   "repository": {
     "type": "git",
@@ -20,6 +19,9 @@
   },
   "homepage": "https://github.com/Thayrov/ProyectoJavaScript#readme",
   "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.31.11",
     "node-sass": "^8.0.0",
     "nodemon": "^2.0.20"
   }
