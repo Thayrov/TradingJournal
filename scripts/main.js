@@ -40,55 +40,19 @@ for (let i = 0; i < loops; i++) {
 		}
 	};
 	//  Salidas y condiciones
+	//	prettier-ignore
 	if (position == 'long' || position == 'short') {
-		console.log('Entraste al mercado: ' + market);
-		console.log(
-			'Tu capital es de $' + capital.toFixed(twoDecimals) + ' ' + currency,
-		);
-		console.log(
-			'Tu porcentaje de riesgo es de ' + risk.toFixed(twoDecimals) * 100 + '%',
-		);
-		console.log(
-			'Tu rata de recompensa/riesgo es de ' + ratio.toFixed(twoDecimals),
-		);
-		console.log(
-			'El activo que operarás en el mercado ' +
-				market +
-				' vale $' +
-				price.toFixed(sixDecimals) +
-				' ' +
-				currency,
-		);
-		console.log('Entrará al mercado en posición ' + position);
-		console.log(
-			'Con tu stop loss y porcentaje de riesgo, deberás comprar ' +
-				units(capital, risk, stopLoss, price, position) +
-				' unidades para satisfacer tu estrategia de trading',
-		);
-		console.log(
-			'Saldrás del mercado con la pérdida planeada, si el precio llega a $' +
-				stopLoss.toFixed(sixDecimals) +
-				' ' +
-				currency,
-		);
-		console.log(
-			'Cerrarás tu operación con la ganancia planeada, si el precio llega a $' +
-				takeProfit(price, stopLoss, ratio).toFixed(sixDecimals) +
-				' ' +
-				currency,
-		);
-		console.log(
-			'Si pierdes, tu capital luego de la operación será de $' +
-				lossTotal(capital, risk).toFixed(twoDecimals) +
-				' ' +
-				currency,
-		);
-		console.log(
-			'Si ganas, tu capital luego de la operación será de $' +
-				profitTotal(capital, risk, ratio).toFixed(twoDecimals) +
-				' ' +
-				currency,
-		);
+		console.log(`Entraste al mercado: ${market}; 
+		Tu capital es de $${capital.toFixed(twoDecimals)} ${currency} 
+		Tu porcentaje de riesgo es de ${risk.toFixed(twoDecimals)*100} % 
+		Tu rata de recompensa/riesgo es de ${ratio.toFixed(twoDecimals)} 
+		El activo que operarás en el mercado ${market} vale $${price.toFixed(sixDecimals)} ${currency} 
+		Entrará al mercado en posición ${position}
+		Con tu stop loss y porcentaje de riesgo, deberás comprar: ${units(capital,risk,stopLoss,price,position)} unidades para satisfacer tu estrategia de trading.
+		Saldrás del mercado con la pérdida planeada, si el precio llega a $${stopLoss.toFixed(sixDecimals)} ${currency}
+		Cerrarás tu operación con la ganancia planeada, si el precio llega a $${takeProfit(price,stopLoss,ratio).toFixed(sixDecimals)} ${currency}
+		Si pierdes, tu capital luego de la operación será de $${lossTotal(capital,risk).toFixed(twoDecimals)} ${currency}
+		Si ganas, tu capital luego de la operación será de $${profitTotal(capital,risk,ratio).toFixed(twoDecimals)} ${currency}`);
 	} else {
 		alert(error);
 	}
