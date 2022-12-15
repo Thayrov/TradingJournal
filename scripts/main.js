@@ -2,12 +2,13 @@
 const sixDecimals = 6;
 const twoDecimals = 2;
 const errorPosition =
-	'Ingresa "short" o "long" en tu posición de entrada para continuar';
-const loops = parseInt(
-	prompt('¿Cuántas operaciones quieres calcular? (Máximo: 5)'),
-);
-
-//	Array
+	'Ingresa "s" o "l" en tu posición de entrada para continuar';
+do {
+	var loops = parseInt(
+		prompt('¿Cuántas operaciones quieres calcular? (Máximo: 5)'),
+	);
+} while (loops < 1 || loops > 5);
+//	Declaración del array
 const Entradas = [];
 //	Clase constructora
 class entradaMercado {
@@ -49,9 +50,9 @@ class entradaMercado {
 	}
 	calcUnits() {
 		switch (this.position) {
-			case 'long':
+			case 'l':
 				return (this.capital * this.risk) / (this.price - this.stopLoss);
-			case 'short':
+			case 's':
 				return (this.capital * this.risk) / (this.stopLoss - this.price);
 			default:
 				return errorPosition;
@@ -86,7 +87,7 @@ class entradaMercado {
 //  Bucle
 for (let loop = 0; loop < loops; loop++) {
 	const entrada = new entradaMercado(
-		prompt('¿En qué moneda operas?').toLowerCase(),
+		prompt('¿En qué moneda operas?(usd o mxn)').toLowerCase(),
 		prompt('¿En qué mercado operarás?').toUpperCase(),
 		parseFloat(prompt('¿Cuánto es tu capital?')),
 		parseFloat(
@@ -97,7 +98,7 @@ for (let loop = 0; loop < loops; loop++) {
 		parseFloat(prompt('¿Cuánto es tu rata de recompensa/riesgo?')),
 		parseFloat(prompt('¿Cuánto vale la unidad del activo que operarás?')),
 		prompt(
-			'¿En qué posición entrarás? ("long" para alcista o "short" para bajista)',
+			'¿En qué posición entrarás? ("l" para long o alcista o "s" para short o bajista)',
 		).toLowerCase(),
 		parseFloat(prompt('¿En qué precio establecerás tu Stop Loss?')),
 	);
@@ -110,6 +111,7 @@ for (let loop = 0; loop < loops; loop++) {
 	//	Guarda la información en el array
 	Entradas.push(entrada);
 }
+//	Muestro el total gastado en cada operación
 for (const entrada of Entradas) {
 	console.log(
 		`En total, gastaste $${parseFloat(entrada.calcUnits() * entrada.price)} ${
