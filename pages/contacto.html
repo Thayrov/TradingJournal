@@ -20,114 +20,196 @@
 	</head>
 
 	<body class="px-5">
-		<div class="container">
-			<header>
-				<nav class="navbar navbar-expand-md navbar-dark fixed-top cabecera">
-					<div class="container-fluid">
+		<header>
+			<div class="d-flex justify-content-center">
+				<a href="../index.html" class="text-decoration-none"
+				><p class="fs-1 fw-bold title text-white">Trading TX</p></a
+			>
+			</div>
+			<div class="d-flex align-items-center divider"></div>
+			<div class="d-flex justify-content-evenly">
+				<ul
+					class="nav nav-pills nav-fill me-auto mb-2 mb-md-0 ms-auto flex-md-row flex-sm-column fs-md-1 fs-sm-5">
+					<li class="px-5 nav-item">
 						<a
-							class="navbar-brand cabecera__titulo pt-2 px-3 animate__animated animate__flipInX"
-							href="#">
-							<code><p class="animacion__titulo">Trading TX</p></code></a
+						class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
+						href="calculadora.html"
+						>Calculadora</a
 						>
-						<button
-							class="navbar-toggler"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#navbarCollapse"
-							aria-controls="navbarCollapse"
-							aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarCollapse">
-							<ul class="navbar-nav me-auto mb-2 mb-md-0 ms-auto">
-								<li class="nav-item cabecera__nav__a mx-1">
-									<a class="nav-link" href="./journal.html">Journal</a>
-								</li>
-								<li class="nav-item cabecera__nav__a mx-1">
-									<a class="nav-link" href="./calculadora.html">Calculadora</a>
-								</li>
-								<li class="nav-item cabecera__nav__a mx-1">
-									<a class="nav-link" href="./lista.html"
-										>Lista de seguimiento</a
-									>
-								</li>
-								<li class="nav-item cabecera__nav__a mx-1">
-									<a class="nav-link" href="./contacto.html">Contacto</a>
-								</li>
-							</ul>
+					</li>
+					<li class="px-5 nav-item">
+						<a
+							class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
+							aria-current="page"
+							href="journal.html"
+							>Journal</a
+						>
+					</li>
+					<li class="px-5 nav-item">
+						<a
+							class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
+							href="mercados.html"
+							>Mercados</a
+						>
+					</li>
+					<li class="px-5 nav-item active__page">
+						<a
+							class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
+							href="#"
+							>Contacto</a
+						>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<main class=" col animate__animated animate__fadeIn contenido pt-5">
+			<section class="row contenido__info">
+				<div class="col-12">
+					<h1 class="contacto__contenido__info__p h1 pt-5 text-center">Contáctame</h1>
+				</div>
+				<div class="row">
+					<img class="col-md-2 col-sm-5 foto" src="../images/Profile pic.jpg" alt="foto del autor" width="50">
+					<p class="col-md-10 col-sm-7 quiensoy__contenido__info__p mt-3 text-center">Mi nombre es Thayrov Manuel García Tovar; estoy cursando Desarrollo Web porque quiero hacer toda la carrera de programación Full Stack. Siempre he sentido que tengo vocación para la programación y deseo explorarlo en esta etapa de mi vida.</p>
+				</div>
+			</section>
+			<div class="d-flex align-items-center divider my-5"></div>
+<section>				<div class="">
+					<p class="contacto__contenido__info__p text-center">
+						Si deseas escribirme, siéntete libre de hacerlo, por favor deja tus
+						datos:
+					</p>
+					<form
+						class="px-1 text-dark"
+						action="https://formsubmit.co/thayrovg@gmail.com"
+						method="POST">
+						<div class="form-floating mb-1">
+							<input
+								name="Nombre"
+								type="text"
+								class="form-control"
+								id="form_nombre"
+								placeholder="Nombre"
+								required="required"
+								oninvalid="this.setCustomValidity('Ingresa tu nombre o un seudónimo')"
+								oninput="this.setCustomValidity('')" />
+							<label for="form_nombre">nombre</label>
 						</div>
-					</div>
-				</nav>
-			</header>
-			<main>
-				<h2>
-					En esta página podrás encontrar herramientas que te ayuden al hacer
-					trading
-				</h2>
-			</main>
-			<footer>
-				<nav class="navbar navbar-expand-md navbar-dark fixed-bottom pie">
-					<div class="container-fluid">
-						<img
-							class="pie__logo mx-1"
-							src="../images/spock_icon.png"
-							alt="Spock te saluda" />
-						<div class="navbar-collapse pie__info">
-							<a
-								class="navbar-brand pie__info__disclaimer pb-2 px-3"
-								href="../pages/contacto.html"
-								><code
-									>Proyecto académico sin fines de lucro, para aclaraciones
-									contáctame por mis redes:</code
-								></a
-							>
-							<a
-								class="navbar-brand pie__info__disclaimer_sm pb-2 px-3 me-auto ms-auto"
-								href="../pages/contacto.html"
-								><code>contáctame, estas son mis redes:</code></a
-							>
-							<ul class="navbar-nav me-auto mb-2 mb-md-0 ms-auto pie__links">
-								<li class="nav-item mx-1">
-									<a
-										href="https://www.linkedin.com/in/thayrovg/"
-										target="_blank"
-										><img
-											class="pie__links_img"
-											src="../images/linkedin_icon.png"
-											alt="Logo de LinkedIn"
-									/></a>
-								</li>
-								<li class="nav-item mx-1">
-									<a href="https://github.com/Thayrov" target="_blank"
-										><img
-											class="pie__links_img"
-											src="../images/github_icon.png"
-											alt="Logo de Github"
-									/></a>
-								</li>
-								<li class="nav-item mx-1">
-									<a href="https://www.facebook.com/thayrovg" target="_blank"
-										><img
-											class="pie__links_img"
-											src="../images/facebook_icon.png"
-											alt="Logo de Facebook"
-									/></a>
-								</li>
-								<li class="nav-item mx-1">
-									<a href="https://twitter.com/ThayrovG" target="_blank"
-										><img
-											class="pie__links_img"
-											src="../images/twitter_icon.png"
-											alt="Logo de Twitter"
-									/></a>
-								</li>
-							</ul>
+						<div class="form-floating mb-1">
+							<input
+								name="e-mail"
+								type="email"
+								class="form-control"
+								id="form_email"
+								placeholder="nombre@ejemplo.com"
+								required
+								oninvalid="this.setCustomValidity('Ingresa tu correo')"
+								oninput="this.setCustomValidity('')" />
+							<label for="form_email">e_mail</label>
 						</div>
+						<div class="form-floating mb-1">
+							<textarea
+								name="Mensaje"
+								class="form-control"
+								id="form_texto"
+								placeholder="Ingresa tu mensaje"
+								cols="30"
+								rows="10"
+								required
+								oninvalid="this.setCustomValidity('Ingresa tu mensaje')"
+								oninput="this.setCustomValidity('')"></textarea>
+							<label for="form_texto">ingresa tu mensaje</label>
+						</div>
+						<div>
+							<button
+								class="w-100 btn btn-lg btn-secondary my-3 cabecera__nav__a fs-6 "
+								type="submit">
+								Envía tu mensaje
+							</button>
+						</div>
+						<input type="hidden" name="_template" value="table" />
+						<input
+							type="hidden"
+							name="_next"
+							value="https://thayrov.github.io/PF-ThayrovGarcia/pages/gracias.html" />
+					</form>
+				</div>
+			</section>
+			<div class="d-flex align-items-center divider my-5"></div>
+
+			<section class="contenido__info justify-content-center">
+				<div>
+					<p class="contacto__contenido__info__p text-center">
+						Y si deseas visitarme, escríbeme para que lo validemos, estoy en
+						Morelia:
+					</p>
+					<div class="ratio ratio-4x3 mb-3">
+						<iframe
+							class="mapa"
+							title="Acceso a ubicación de Google Maps de Morelia"
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60099.340802067054!2d-101.24114355575456!3d19.70373265974787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0ba2b29da7e3%3A0x4016978679c8620!2sMorelia%2C%20Michoac%C3%A1n!5e0!3m2!1sen!2smx!4v1666318748531!5m2!1sen!2smx"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
-				</nav>
-			</footer>
-		</div>
-		<script src="./scripts/main.js"></script>
+				</div>
+			
+
+			
+		</main>
+
+		<footer>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-bottom pie">
+				<div class="container-fluid">
+					<div class="navbar-collapse pie__info">
+						<a
+							class="navbar-brand pie__info__disclaimer pb-2 px-3"
+							href="./pages/contacto.html"
+							>Proyecto académico sin fines de lucro y no representa
+							recomendación o asesoría financiera alguna, para aclaraciones
+							contáctame por mis redes:</a
+						>
+						<a
+							class="navbar-brand pie__info__disclaimer_sm pb-2 px-3 me-auto ms-auto"
+							href="./pages/contacto.html"
+							>Contáctame:</a
+						>
+						<ul class="navbar-nav me-auto mb-2 mb-md-0 ms-auto pie__links">
+							<li class="nav-item mx-1">
+								<a href="https://www.linkedin.com/in/thayrovg/" target="_blank"
+									><img
+										class="pie__links_img"
+										src="../images/linkedin_icon.png"
+										alt="Logo de LinkedIn"
+								/></a>
+							</li>
+							<li class="nav-item mx-1">
+								<a href="https://github.com/Thayrov" target="_blank"
+									><img
+										class="pie__links_img"
+										src="../images/github_icon.png"
+										alt="Logo de Github"
+								/></a>
+							</li>
+							<li class="nav-item mx-1">
+								<a href="https://www.facebook.com/thayrovg" target="_blank"
+									><img
+										class="pie__links_img"
+										src="../images/facebook_icon.png"
+										alt="Logo de Facebook"
+								/></a>
+							</li>
+							<li class="nav-item mx-1">
+								<a href="https://twitter.com/ThayrovG" target="_blank"
+									><img
+										class="pie__links_img"
+										src="../images/twitter_icon.png"
+										alt="Logo de Twitter"
+								/></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</footer>
+		<script src="../scripts/main.js"></script>
 	</body>
 </html>

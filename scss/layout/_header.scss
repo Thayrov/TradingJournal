@@ -1,62 +1,27 @@
 /*Clases del <header>*/
-.cabecera{
-    @include estilo-cabecera (map-get($widths,cabecera),$header-b-color,$text-color);  
-    @include sombra (-header);
-    line-height: map-get($heights,titulo);
-    .cabecera__titulo{
-        @include estilo-cabecera (map-get($widths,w-60vw),$header-sec-b-color,0);  
-        @include borde ();
-        font-style: $italic-style; 
-        height: map-get($heights,cabecera-titulo);
-        box-shadow: $sombreado-titulo;
-        color: $text-color;
-        .animacion__titulo{
-            overflow: hidden;
-            border-right: $borde-animacion-tit;
-            white-space: nowrap;
-            margin: map-get($margins,0-auto);
-            animation: 
-                typing 3.5s steps(30, end),
-                blink-caret .5s step-end infinite;
-            }
-    }
-    .cabecera__logo{
-        @include logo ();
-    }
-    .cabecera__nav__a{
-        height: map-get($heights,cabecera-titulo);
-        text-align: $text-center;
-        background-color: $botones-b-color;
-        @include borde ();
-        &:hover {
-            @include sombra (-botones);   
-        }
-    }
-    .cabecera__nav__a__home{
-        margin-top: map-get($margins,top-0);
+.title{
+    font-family: $fuente;
+}
+.divider{
+    height: map-get($heights,divider);
+    box-shadow: $sombreado-divider;
+    background-color: $links-color;
+}
+.cabecera__nav__a{
+    height: map-get($heights,titulo);
+    text-align: $text-center;
+    @include borde-links ();
+    &:hover {
+        @include sombra (-botones);   
     }
 }
-/*Animación del título*/
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+.active__page{
+    border-bottom: 1px solid #a8fbfb;
 }
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: $links-color }
-}
+
+
 /*Media Queries*/
 @media screen and (max-width: 767px){
-    .cabecera .cabecera__nav__a{
+    .cabecera__nav__a{
         margin-top: map-get($margins,top-2);
-    }
-    .cabecera .cabecera__nav__a__home{
-        margin-top: map-get($margins,top-10);
-    }
-    .cabecera{
-        line-height: map-get($heights,titulo-mq);
-        .cabecera__titulo{
-            font-size: $fuente-tit;
-        }
-    }
-}
+}}

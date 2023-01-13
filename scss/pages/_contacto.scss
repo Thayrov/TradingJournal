@@ -1,0 +1,55 @@
+/*Clases del <main> de contacto.html*/
+.contenido{    
+    .contenido__info{
+        width: map-get($widths,contenido-info-mq);
+        @include centrado ();
+        .contacto__contenido__info__p{
+            font-size: $fuente-med;
+            padding: map-get($paddings,p-2vw);
+            color: $text-color;
+        }
+        .mapa{
+            @include borde ();
+            @include sombra ($sombreado-main-gradient); 
+            &:hover {
+                @include sombra (-botones);   
+            }
+        }
+        .h1{
+            font-size: $fuente-gde;
+        }
+    }
+}
+.cabecera__nav__a{
+    height: map-get($heights,cabecera-titulo);
+    text-align: $text-center;
+    background-color: $botones-b-color;
+    @include borde ();
+    &:hover {
+        @include sombra (-botones);   
+    }
+}
+label{
+    color: $header-b-color;
+}
+.foto{
+    border-radius: $round-border-radius;
+    @include sombra ($sombreado-main-gradient);  
+}
+.redes{
+    display:block;
+}
+.pie__links_img{
+    &:hover{
+        border-radius: $round-border-radius*3;
+        @include sombra (-botones);
+
+    } 
+}
+/*Media Queries*/
+@media screen and (max-width: 992px) {
+    .redes{
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,7 +1,10 @@
-@mixin body ($bgc:$background-color,$pt:map-get($paddings,top-6r),$pb:map-get($paddings,bottom-6r)) {
+@mixin body ($bgc:$background-color,$bgi:$background-gradient,$pt:map-get($paddings,p-2vw),$pb:map-get($paddings,bottom-6r)) {
     font-family: $fuente;
     color: $mensaje-color;
+    background-image: $bgi;
     background-color: $bgc;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     padding-top: $pt;
     padding-bottom: $pb;
     @media screen and (max-width:768px){
@@ -36,7 +39,10 @@
         box-shadow: $shadow;
     }
 }
-@mixin borde ($border:$border-style,$radius:$round-border-radius) {
+@mixin borde-links ($border:$border-links) {
+    border: $border;
+}
+@mixin borde ($border:$border-links,$radius:$round-border-radius) {
     border: $border;
     border-radius: $radius;
 }

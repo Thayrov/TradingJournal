@@ -11,20 +11,22 @@ $text-left: left;
 $text-color:#ffffffbe;
 $text-color2:#000000;
 $links-color:#a8fbfb;
-$background-color: #1B1F24;
+$background-color: #24292E;
 $header-b-color: #363636;
 $header-sec-b-color: #cccccc4a;
 $border-color: #cccccc88;
 $botones-b-color: #262627c3;
 $sombreado-color:#000000bf;
-$background-gradient: linear-gradient(to right bottom, #2c3138, #282c33, #23282e, #1f2329, #1b1f24);
+$background-gradient: linear-gradient(to bottom, #24292f, #262d37, #28323e, #293646, #2b3b4e, #2f3e51, #324254, #364557, #3c4855, #424b54, #494d52, #4f5051);;
 $mensaje-color: #ffffff;
 $mensaje-bg-color: #1b1f24ab;
 /*bordes*/
 $border-style: 1px solid $border-color;
 $round-border-radius: 10px;
 $borde-animacion-tit:.15em solid $links-color;
+$border-links: 0px 0px 1px 0px solid  $links-color;
 /*sombreados*/
+$sombreado-divider: 0px 0px 3px 1px $links-color;
 $sombreado-titulo: inset 0 0 0 1px $sombreado-color;
 $sombreado-header: 0px 3px 5px 0px $sombreado-color;
 $sombreado-botones: 0px 0px 2px 1px $links-color;
@@ -34,6 +36,7 @@ $sombreado-footer: 0px -3px 5px 0px $sombreado-color;
 $sombreado-scrollbar: inset 0 0 5px $header-sec-b-color; 
 /*mapas*/
 $heights:(
+    divider: 0.1vh,
     titulo: 3.5vh,
     titulo-mq: 4.5vh,
     cabecera-titulo: 7vh,

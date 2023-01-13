@@ -2,17 +2,13 @@
 .pie{
     @include estilo-cabecera (map-get($widths,cabecera),$header-b-color,$header-sec-b-color);    
     @include sombra (-footer,);
-    .pie__logo{
-    @include logo ();
-    }
+    background-image: linear-gradient(to bottom, #24292f, #24292f, #24292f, #24292f, #24292f, #272c32, #2b2f34, #2e3237, #36393d, #3e4144, #46484a, #4f5051);
+    box-shadow: $sombreado-titulo;
     .pie__info{
-        background-color: $header-sec-b-color;
-        @include borde ();
-        box-shadow: $sombreado-titulo;
         .pie__info__disclaimer{
             width: map-get($widths,pie-info-disclaimer);
             font-size: $fuente-peq;
-            text-align: $text-left;
+            text-align: $text-center;
         }
         .pie__info__disclaimer_sm{
             display: none;
@@ -33,9 +29,6 @@
 /*Media Queries*/
 @media screen and (max-width:768px){
     .pie{
-        .pie__logo{
-            display: none;
-        } 
         .pie__info{
             margin-top: map-get($margins,top-8);
             .pie__info__disclaimer{
