@@ -20,7 +20,7 @@
 	</head>
 
 	<body class="px-5">
-		<header>
+		<header class="fixed-top">
 			<div class="d-flex justify-content-center">
 				<a href="../index.html" class="text-decoration-none"
 					><p class="fs-1 fw-bold title text-white">Trading TX</p></a
@@ -62,12 +62,195 @@
 				</ul>
 			</div>
 		</header>
-		<main class="pt-5 text-center">
+		<main class="pt-5 mt-5 text-center">
 			<h2>Calculadora de tamaño de posición de entrada al mercado.</h2>
 			<p>
 				Con esta calculadora podrás identificar niveles de Stop Loss óptimos de
 				acuerdo a los parámetros que le brindes.
 			</p>
+			<div class="d-flex align-items-center divider my-5"></div>
+
+			<div class="container border-end border-start border-secondary">
+				<h2 class="pb-2">Ingresa tus parámetros de entrada:</h2>
+				<form action="">
+					<div class="row mb-3">
+						<label
+							for="balance"
+							class="col-sm-2 col-form-label col-form-label-sm"
+							>Balance</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="number"
+								class="form-control form-control-sm"
+								id="balance"
+								placeholder="Balance de tu cuenta" />
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label
+							for="instrumento"
+							class="col-sm-2 col-form-label col-form-label-sm"
+							>Instrumento</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="text"
+								class="form-control form-control-sm"
+								id="instrumento"
+								placeholder="Instrumento en el que vas a operar" />
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label
+							class="col-sm-2 col-form-label col-form-label-sm"
+							for="direccion"
+							>Dirección</label
+						>
+						<div class="col-sm-9">
+							<select
+								class="form-select form-control form-control-sm"
+								id="direccion">
+								<option selected>
+									Elige la dirección del mercado en la que vas a operar...
+								</option>
+								<option value="1">Long</option>
+								<option value="2">Short</option>
+							</select>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label for="hora" class="col-sm-2 col-form-label col-form-label-sm"
+							>Hora</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="number"
+								class="form-control form-control-sm"
+								id="hora"
+								placeholder="Hora de tu entrada al mercado, ingresar en formato de 24 horas de la siguiente manera: HH:MM dd/mm/aa" />
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label
+							for="precio"
+							class="col-sm-2 col-form-label col-form-label-sm"
+							>Precio</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="number"
+								class="form-control form-control-sm"
+								id="precio"
+								placeholder="Precio del instrumento cuando entraste al mercado" />
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label
+							for="spread"
+							class="col-sm-2 col-form-label col-form-label-sm"
+							>Spread</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="number"
+								class="form-control form-control-sm"
+								id="spread"
+								placeholder="Spread del instrumento para calcular la comisión de entrada y salida" />
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label for="rrr" class="col-sm-2 col-form-label col-form-label-sm"
+							>RRR</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="number"
+								class="form-control form-control-sm"
+								id="rrr"
+								placeholder="Relación de Riesgo y Recompensa de tu entrada" />
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label for="sl" class="col-sm-2 col-form-label col-form-label-sm"
+							>Stop Loss</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="number"
+								class="form-control form-control-sm"
+								id="sl"
+								placeholder="Precio en  el que tu Stop Loss se activará" />
+						</div>
+					</div>
+					<div class="d-grid gap-2 col-12 mx-auto">
+						<button type="button" class="btn btn-outline-info">
+							Presiona para ingresar entrada en la tabla
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="d-flex align-items-center divider my-5"></div>
+			<div class="table-responsive">
+				<table
+					class="table table-dark table-striped table-hover table-sm align-middle">
+					<caption>
+						*(Relación de Riesgo y Recompensa); **(Stop Loss); ***(Take Profit)
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Balance</th>
+							<th scope="col">Instrumento</th>
+							<th scope="col">Dirección</th>
+							<th scope="col">Hora de entrada</th>
+							<th scope="col">Precio de entrada</th>
+							<th scope="col">Unidades</th>
+							<th scope="col">Spread</th>
+							<th scope="col">Tamaño del trade</th>
+							<th scope="col">Comisión</th>
+							<th scope="col">RRR*</th>
+							<th scope="col">SL**</th>
+							<th scope="col">TP***</th>
+							<th scope="col">Posible pérdida</th>
+							<th scope="col">Posible ganancia</th>
+							<th scope="col">RRR con comisión</th>
+							<th scope="col">Riesgo</th>
+						</tr>
+					</thead>
+					<tbody class="table-group-divider">
+						<div>
+							<tr>
+								<th scope="row">1</th>
+								<td>500</td>
+								<td>HD</td>
+								<td>Long</td>
+								<td>11:30 12/12/22</td>
+								<td>$350</td>
+								<td>1.5</td>
+								<td>$0.31</td>
+								<td>$483.40</td>
+								<td>$0.50</td>
+								<td>1.5</td>
+								<td>$348</td>
+								<td>$353</td>
+								<td>-$2</td>
+								<td>$3</td>
+								<td>1.1</td>
+								<td>0.6%</td>
+							</tr>
+						</div>
+					</tbody>
+				</table>
+			</div>
+			<div class="d-grid gap-2 col-4 mx-auto">
+				<button type="button" class="btn btn-outline-info">
+					Presiona para limpiar la tabla
+				</button>
+				<button type="button" class="btn btn-outline-info">
+					Presiona para enviar la información al journal
+				</button>
+			</div>
 		</main>
 		<footer>
 			<nav class="navbar navbar-expand-md navbar-dark fixed-bottom pie">

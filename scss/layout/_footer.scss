@@ -2,8 +2,8 @@
 .pie{
     @include estilo-cabecera (map-get($widths,cabecera),$header-b-color,$header-sec-b-color);    
     @include sombra (-footer,);
-    background-image: linear-gradient(to bottom, #24292f, #24292f, #24292f, #24292f, #24292f, #272c32, #2b2f34, #2e3237, #36393d, #3e4144, #46484a, #4f5051);
-    box-shadow: $sombreado-titulo;
+    background-image: linear-gradient(to top, #24292f, #24292f, #24292f, #24292f, #24292f, #272c32, #2b2f34, #2e3237, #36393d, #3e4144, #46484a, #4f5051);
+    //box-shadow: $sombreado-titulo;
     .pie__info{
         .pie__info__disclaimer{
             width: map-get($widths,pie-info-disclaimer);
