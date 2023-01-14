@@ -125,10 +125,10 @@
 						>
 						<div class="col-sm-9">
 							<input
-								type="number"
+								type="text"
 								class="form-control form-control-sm"
 								id="hora"
-								placeholder="Hora de tu entrada al mercado, ingresar en formato de 24 horas de la siguiente manera: HH:MM dd/mm/aa" />
+								placeholder="Hora de tu entrada al mercado, ingresar de la siguiente manera: año, mes, día, hora, minutos (2023,12,23,15,57)" />
 						</div>
 					</div>
 					<div class="row mb-3">
@@ -160,6 +160,20 @@
 						</div>
 					</div>
 					<div class="row mb-3">
+						<label
+							for="variacion"
+							class="col-sm-2 col-form-label col-form-label-sm"
+							>Variación del precio</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="number"
+								class="form-control form-control-sm"
+								id="variacion"
+								placeholder="Variación porcentual del precio en la ultima sesión. Si es 2.53% escribir solo 2.53" />
+						</div>
+					</div>
+					<div class="row mb-3">
 						<label for="rrr" class="col-sm-2 col-form-label col-form-label-sm"
 							>RRR</label
 						>
@@ -171,20 +185,11 @@
 								placeholder="Relación de Riesgo y Recompensa de tu entrada" />
 						</div>
 					</div>
-					<div class="row mb-3">
-						<label for="sl" class="col-sm-2 col-form-label col-form-label-sm"
-							>Stop Loss</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="number"
-								class="form-control form-control-sm"
-								id="sl"
-								placeholder="Precio en  el que tu Stop Loss se activará" />
-						</div>
-					</div>
 					<div class="d-grid gap-2 col-12 mx-auto">
-						<button type="button" class="btn btn-outline-info">
+						<button
+							type="button"
+							class="btn btn-outline-info"
+							id="btnAgregarEntrada">
 							Presiona para ingresar entrada en la tabla
 						</button>
 					</div>
@@ -209,6 +214,7 @@
 							<th scope="col">Spread</th>
 							<th scope="col">Tamaño del trade</th>
 							<th scope="col">Comisión</th>
+							<th scope="col">Variación(%)</th>
 							<th scope="col">RRR*</th>
 							<th scope="col">SL**</th>
 							<th scope="col">TP***</th>
@@ -219,27 +225,7 @@
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">
-						<div>
-							<tr>
-								<th scope="row">1</th>
-								<td>500</td>
-								<td>HD</td>
-								<td>Long</td>
-								<td>11:30 12/12/22</td>
-								<td>$350</td>
-								<td>1.5</td>
-								<td>$0.31</td>
-								<td>$483.40</td>
-								<td>$0.50</td>
-								<td>1.5</td>
-								<td>$348</td>
-								<td>$353</td>
-								<td>-$2</td>
-								<td>$3</td>
-								<td>1.1</td>
-								<td>0.6%</td>
-							</tr>
-						</div>
+						<div id="entradasCalculadora"></div>
 					</tbody>
 				</table>
 			</div>
@@ -306,6 +292,6 @@
 				</div>
 			</nav>
 		</footer>
-		<script src="../scripts/main.js"></script>
+		<script src="../scripts/main_copy.js"></script>
 	</body>
 </html>
