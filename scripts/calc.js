@@ -108,37 +108,7 @@ class EntradaMercado {
 	}
 
 	imprimirEntrada() {
-		return (document.getElementById(
-			'entradasCalculadora',
-		).innerHTML = `<div class="table-responsive">
-        <table
-            class="table table-dark table-striped table-hover table-sm align-middle">
-            <caption>
-                *(Relación de Riesgo y Recompensa); **(Stop Loss); ***(Take Profit)
-            </caption>
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Balance</th>
-                    <th scope="col">Instrumento</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Hora de entrada</th>
-                    <th scope="col">Precio de entrada</th>
-                    <th scope="col">Unidades</th>
-                    <th scope="col">Spread</th>
-                    <th scope="col">Tamaño del trade</th>
-                    <th scope="col">Comisión</th>
-                    <th scope="col">Variación(%)</th>
-                    <th scope="col">RRR*</th>
-                    <th scope="col">SL**</th>
-                    <th scope="col">TP***</th>
-                    <th scope="col">Posible pérdida</th>
-                    <th scope="col">Posible ganancia</th>
-                    <th scope="col">RRR con comisión</th>
-                    <th scope="col">Riesgo</th>
-                </tr>
-            </thead>
-            <tbody class="table-group-divider">
+		return (document.getElementById('entradasCalculadora').innerHTML += `
             <th scope="row">${this.entryNo}</th>
             <td>$${this.balance}</td>
             <td>${this.market}</td>
@@ -158,9 +128,7 @@ class EntradaMercado {
             <td>${this.ratio2}</td>
             <td>${this.risk}%</td>
             </tr>
-            </tbody>
-        </table>
-    </div><tr>
+            
 `);
 	}
 }

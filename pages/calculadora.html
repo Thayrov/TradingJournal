@@ -196,8 +196,37 @@
 				</form>
 			</div>
 			<div class="d-flex align-items-center divider my-5"></div>
-			<div id="entradasCalculadora"></div>
-
+			<div class="table-responsive">
+				<table
+					class="table table-dark table-striped table-hover table-sm align-middle">
+					<caption>
+						*(Relación de Riesgo y Recompensa); **(Stop Loss); ***(Take Profit)
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Balance</th>
+							<th scope="col">Instrumento</th>
+							<th scope="col">Dirección</th>
+							<th scope="col">Hora de entrada</th>
+							<th scope="col">Precio de entrada</th>
+							<th scope="col">Unidades</th>
+							<th scope="col">Spread</th>
+							<th scope="col">Tamaño del trade</th>
+							<th scope="col">Comisión</th>
+							<th scope="col">Variación(%)</th>
+							<th scope="col">RRR*</th>
+							<th scope="col">SL**</th>
+							<th scope="col">TP***</th>
+							<th scope="col">Posible pérdida</th>
+							<th scope="col">Posible ganancia</th>
+							<th scope="col">RRR con comisión</th>
+							<th scope="col">Riesgo</th>
+						</tr>
+					</thead>
+					<tbody class="table-group-divider" id="entradasCalculadora"></tbody>
+				</table>
+			</div>
 			<div class="d-grid gap-2 col-4 mx-auto">
 				<button type="button" class="btn btn-outline-info">
 					Presiona para limpiar la tabla
