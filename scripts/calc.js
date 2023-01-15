@@ -1,7 +1,4 @@
-const sixDecimals = 6;
-const twoDecimals = 2;
-const entradas = [];
-
+//  Funciones
 const calcUnits = (balance, price) => balance / price;
 const calcSize = (price, units) => price * units;
 const calcCommission = (spread, units) => spread * units;
@@ -39,6 +36,11 @@ const calcProfitTotal = (position, units, takeProfit, price, commission) => {
 };
 const calcRRRTotal = (profitTotal, lossTotal) => -profitTotal / lossTotal;
 const calcRisk = (lossTotal, balance) => (-lossTotal / balance) * 100;
+
+//  Variables, declaraciones y clase constructora
+const sixDecimals = 6;
+const twoDecimals = 2;
+const entradas = [];
 
 let balance = document.getElementById('balance').value;
 let market = document.getElementById('instrumento').value;
@@ -128,6 +130,7 @@ class EntradaMercado {
 	}
 }
 
+//  Función que toma entrada de datos del usuario
 const addEntrada = start => {
 	start.preventDefault();
 	const entrada = new EntradaMercado(
@@ -161,15 +164,17 @@ const addEntrada = start => {
 		)),
 		(risk = parseFloat(calcRisk(lossTotal, balance)).toFixed(twoDecimals)),
 	);
+	//  Imprimir datos en tabla
 	entrada.imprimirEntrada();
-
+	//  Guardar datos en array
 	entradas.push(entrada);
+	//  Limpiar formulario para siguiente entrada
 	document.querySelector('form').reset();
+	//  Guardar array en local storage
 	localStorage.setItem('listaEntradas', JSON.stringify(entradas));
 };
 
-console.log(entradas);
-
+//  Evento para activar función addEntrada()
 document.addEventListener('DOMContentLoaded', () => {
 	document
 		.getElementById('btnAgregarEntrada')
