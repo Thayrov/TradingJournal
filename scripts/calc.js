@@ -2,7 +2,6 @@ const sixDecimals = 6;
 const twoDecimals = 2;
 const entradas = [];
 
-const calcEntryNo = Date.now();
 const calcUnits = (balance, price) => balance / price;
 const calcSize = (price, units) => price * units;
 const calcCommission = (spread, units) => spread * units;
@@ -41,7 +40,6 @@ const calcProfitTotal = (position, units, takeProfit, price, commission) => {
 const calcRRRTotal = (profitTotal, lossTotal) => -profitTotal / lossTotal;
 const calcRisk = (lossTotal, balance) => (-lossTotal / balance) * 100;
 
-let entryNo = calcEntryNo;
 let balance = document.getElementById('balance').value;
 let market = document.getElementById('instrumento').value;
 let position = document.getElementById('direccion').value;
@@ -68,11 +66,10 @@ let risk = calcRisk(lossTotal, balance);
 
 class EntradaMercado {
 	constructor(
-		entryNo,
+		date,
 		balance,
 		market,
 		position,
-		date,
 		price,
 		units,
 		spread,
@@ -87,11 +84,10 @@ class EntradaMercado {
 		ratio2,
 		risk,
 	) {
-		this.entryNo = entryNo;
+		this.date = date;
 		this.balance = balance;
 		this.market = market;
 		this.position = position;
-		this.date = date;
 		this.price = price;
 		this.units = units;
 		this.spread = spread;
@@ -109,11 +105,10 @@ class EntradaMercado {
 
 	imprimirEntrada() {
 		return (document.getElementById('entradasCalculadora').innerHTML += `
-            <th scope="row">${this.entryNo}</th>
+            <th scope="row">${this.date}</th>
             <td>$${this.balance}</td>
             <td>${this.market}</td>
             <td>${this.position}</td>
-            <td>${this.date}</td>
             <td>$${this.price}</td>
             <td>${this.units}</td>
             <td>$${this.spread}</td>
@@ -136,11 +131,10 @@ class EntradaMercado {
 const addEntrada = start => {
 	start.preventDefault();
 	const entrada = new EntradaMercado(
-		entryNo,
+		(date = new Date(document.getElementById('fecha').value).toUTCString()),
 		(balance = parseFloat(document.getElementById('balance').value)),
-		document.getElementById('instrumento').value.toUpperCase(),
+		(market = document.getElementById('instrumento').value.toUpperCase()),
 		(position = document.getElementById('direccion').value),
-		new Date(document.getElementById('fecha').value).toUTCString(),
 		(price = parseFloat(document.getElementById('precio').value)),
 		(units = parseFloat(calcUnits(balance, price)).toFixed(twoDecimals)),
 		(spread = document.getElementById('spread').value),

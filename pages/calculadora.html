@@ -74,6 +74,18 @@
 				<h2 class="pb-2">Ingresa tus parámetros de entrada:</h2>
 				<form action="">
 					<div class="row mb-3">
+						<label for="fecha" class="col-sm-2 col-form-label col-form-label-sm"
+							>Fecha</label
+						>
+						<div class="col-sm-9">
+							<input
+								type="text"
+								class="form-control form-control-sm"
+								id="fecha"
+								placeholder="Fecha de tu entrada al mercado, ingresar de la siguiente manera: año, mes, día (AAAA, MM, DD)" />
+						</div>
+					</div>
+					<div class="row mb-3">
 						<label
 							for="balance"
 							class="col-sm-2 col-form-label col-form-label-sm"
@@ -119,18 +131,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="row mb-3">
-						<label for="fecha" class="col-sm-2 col-form-label col-form-label-sm"
-							>Fecha</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="text"
-								class="form-control form-control-sm"
-								id="fecha"
-								placeholder="Fecha de tu entrada al mercado, ingresar de la siguiente manera: año, mes, día (AAAA, MM, DD)" />
-						</div>
-					</div>
+
 					<div class="row mb-3">
 						<label
 							for="precio"
@@ -204,11 +205,10 @@
 					</caption>
 					<thead>
 						<tr>
-							<th scope="col">#</th>
+							<th scope="col">Fecha</th>
 							<th scope="col">Balance</th>
 							<th scope="col">Instrumento</th>
 							<th scope="col">Dirección</th>
-							<th scope="col">Hora de entrada</th>
 							<th scope="col">Precio de entrada</th>
 							<th scope="col">Unidades</th>
 							<th scope="col">Spread</th>
@@ -227,11 +227,18 @@
 					<tbody class="table-group-divider" id="entradasCalculadora"></tbody>
 				</table>
 			</div>
-			<div class="d-grid gap-2 col-4 mx-auto">
-				<button type="button" class="btn btn-outline-info">
+			<div class="d-flex align-items-center divider my-5"></div>
+			<div class="pt-1 d-grid gap-3 col-sm-12 col-md-10 mx-auto">
+				<button
+					type="button"
+					class="btn btn-outline-info"
+					id="btnLimpiarEntrada">
 					Presiona para limpiar la tabla
 				</button>
-				<button type="button" class="btn btn-outline-info">
+				<button
+					type="button"
+					class="btn btn-outline-info"
+					id="btnEnviarEntrada">
 					Presiona para enviar la información al journal
 				</button>
 			</div>
