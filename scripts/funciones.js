@@ -1,4 +1,5 @@
 const contar = entradas => entradas++;
+const calcEntryNo = Date.now();
 const calcUnits = (capital, price) => capital / price;
 const calcSize = (price, units) => price * units;
 const calcCommission = (spread, units) => spread * units;

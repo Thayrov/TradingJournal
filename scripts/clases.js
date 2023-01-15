@@ -19,24 +19,36 @@ class EntradaMercado {
 		ratio2,
 		risk,
 	) {
-		this.entryNo = entryNo;
+		this.entryNo = entryNo = Date.now();
 		this.capital = capital;
 		this.market = market;
 		this.position = position;
 		this.date = date;
 		this.price = price;
-		this.units = units;
+		this.units = units = capital / price;
 		this.spread = spread;
-		this.size = size;
-		this.commission = commission;
+		this.size = size = price * units;
+		this.commission = commission = spread * units;
 		this.change = change;
 		this.ratio = ratio;
-		this.stopLoss = stopLoss;
-		this.takeProfit = takeProfit;
-		this.lossTotal = lossTotal;
-		this.profitTotal = profitTotal;
-		this.ratio2 = ratio2;
-		this.risk = risk;
+		this.stopLoss = stopLoss =
+			position == 'long'
+				? price * (1 - change * 0.382)
+				: price * (1 + change * 0.382);
+		this.takeProfit = takeProfit =
+			position == 'long'
+				? price * (1 + change * rrr * 0.382)
+				: price * (1 - change * rrr * 0.382);
+		this.lossTotal = lossTotal =
+			position == 'long'
+				? units * (stopLoss - price) - commission
+				: units * (price - stopLoss) - commission;
+		this.profitTotal = profitTotal =
+			position == 'long'
+				? units * (price - takeProfit) - commission
+				: units * (takeProfit - price) - commission;
+		this.ratio2 = ratio2 = -profitTotal / lossTotal;
+		this.risk = risk = (lossTotal / capital) * 100;
 	}
 
 	/* 	imprimirEntrada() {

@@ -1,7 +1,6 @@
-entry = contar(entradas.length);
+entry = Date.now();
 units = calcUnits(balance, price);
-size = calcSize(price, units);
-commission = calcCommission(spread, units);
+
 stopLoss = calcStopLoss(position, price, change);
 takeProfit = calcTakeProfit(position, price, change);
 lossTotal = calcLossTotal(position, units, stopLoss, price, commission);
@@ -9,7 +8,48 @@ profitTotal = calcProfitTotal(position, units, takeProfit, price, commission);
 rrrTotal = calcRRRTotal(profitTotal, lossTotal);
 risk = calcRisk(lossTotal, balance);
 
-const entradaUsuario = () => {
+const addEntrada = start => {
+	start.preventDefault();
+	const entrada = new EntradaMercado(
+		(entryNo = Date.now()),
+		(capital = document.getElementById('balance').value),
+		(market = document.getElementById('instrumento').value),
+		(position = document.getElementById('direccion').value),
+		(date = document.getElementById('fecha').value),
+		(price = document.getElementById('precio').value),
+		(units = calcUnits(balance, price)),
+		(spread = document.getElementById('spread').value),
+		(size = calcSize(price, units)),
+		(commission = calcCommission(spread, units)),
+		(change = document.getElementById('variacion').value),
+		(ratio = document.getElementById('rrr').value),
+		(stopLoss = calcStopLoss(position, price, change)),
+		(takeProfit = calcTakeProfit(position, price, change)),
+		(lossTotal = calcLossTotal(position, units, stopLoss, price, commission)),
+		(profitTotal = calcProfitTotal(
+			position,
+			units,
+			takeProfit,
+			price,
+			commission,
+		)),
+		(rrrTotal = calcRRRTotal(profitTotal, lossTotal)),
+		(risk = calcRisk(lossTotal, balance)),
+	);
+	entradas.push(entrada);
+	document.querySelector('form').reset();
+	localStorage.setItem('listaEntradas', JSON.stringify(entradas));
+};
+
+console.log(entradas);
+
+document.addEventListener('DOMContentLoaded', () => {
+	document
+		.getElementById('btnAgregarEntrada')
+		.addEventListener('click', addEntrada);
+});
+
+/* const entradaUsuario = () => {
 	for (let i = 1; i <= 100; i++) {
 		const entrada = new EntradaMercado(
 			entry,
@@ -48,10 +88,9 @@ const entradaUsuario = () => {
 			risk,
 		);
 		//	Guarda la información en el array
-		Entradas.push(entrada);
+		entradas.push(entrada);
 	}
-};
-
+}; */
 const imprimirEntrada = () => {
 	const entradas = cargarEntradaLS();
 	let newEntry = '';

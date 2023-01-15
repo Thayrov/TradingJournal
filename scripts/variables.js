@@ -3,7 +3,7 @@ const twoDecimals = 2;
 
 const entradas = [];
 
-let entry;
+let entryNo;
 let balance = document.getElementById('balance');
 let market = document.getElementById('instrumento');
 let position = document.getElementById('direccion');
