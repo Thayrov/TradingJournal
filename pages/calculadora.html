@@ -71,9 +71,9 @@
 			<div class="d-flex align-items-center divider my-5"></div>
 
 			<div class="container border-end border-start border-secondary">
-				<h2 class="pb-2">Ingresa tus parámetros de entrada:</h2>
+				<h2 class="fs-1 pb-2">Ingresa tus parámetros de entrada:</h2>
 				<form action="">
-					<div class="row mb-3">
+					<fieldset class="row mb-3">
 						<label for="fecha" class="col-sm-2 col-form-label col-form-label-sm"
 							>Fecha</label
 						>
@@ -82,10 +82,13 @@
 								type="date"
 								class="form-control form-control-sm"
 								id="fecha"
-								placeholder="Fecha de tu entrada al mercado, ingresar de la siguiente manera: año, mes, día (AAAA, MM, DD)" />
+								placeholder="Fecha de tu entrada al mercado, ingresar de la siguiente manera: año, mes, día (AAAA, MM, DD)"
+								required="required"
+								oninvalid="this.setCustomValidity('Ingresa la fecha de la operación')"
+								oninput="this.setCustomValidity('')" />
 						</div>
-					</div>
-					<div class="row mb-3">
+					</fieldset>
+					<fieldset class="row mb-3">
 						<label
 							for="balance"
 							class="col-sm-2 col-form-label col-form-label-sm"
@@ -96,10 +99,13 @@
 								type="number"
 								class="form-control form-control-sm"
 								id="balance"
-								placeholder="Balance de tu cuenta" />
+								placeholder="Balance de tu cuenta"
+								required="required"
+								oninvalid="this.setCustomValidity('Ingresa tu balance')"
+								oninput="this.setCustomValidity('')" />
 						</div>
-					</div>
-					<div class="row mb-3">
+					</fieldset>
+					<fieldset class="row mb-3">
 						<label
 							for="instrumento"
 							class="col-sm-2 col-form-label col-form-label-sm"
@@ -110,29 +116,36 @@
 								type="text"
 								class="form-control form-control-sm"
 								id="instrumento"
-								placeholder="Instrumento en el que vas a operar" />
+								placeholder="Instrumento en el que vas a operar"
+								required="required"
+								oninvalid="this.setCustomValidity('Ingresa el instrumento en el que vas a operar')"
+								oninput="this.setCustomValidity('')" />
 						</div>
-					</div>
-					<div class="row mb-3">
+					</fieldset>
+					<fieldset class="row mb-3">
 						<label
 							class="col-sm-2 col-form-label col-form-label-sm"
 							for="direccion"
 							>Dirección</label
 						>
 						<div class="col-sm-9">
-							<select
-								class="form-select form-control form-control-sm"
-								id="direccion">
-								<option selected>
-									Elige la dirección del mercado en la que vas a operar...
-								</option>
-								<option value="long">Long</option>
-								<option value="short">Short</option>
-							</select>
+							<input
+								name="direccion"
+								type="list"
+								class="form-control form-control-sm"
+								list="direccion"
+								placeholder="Dirección del mercado en la que entrarás"
+								required="required"
+								oninvalid="this.setCustomValidity('Elige la dirección del mercado en la que entrarás')"
+								oninput="this.setCustomValidity('')" />
+							<datalist id="direccion">
+								<option value="long"></option>
+								<option value="short"></option>
+							</datalist>
 						</div>
-					</div>
+					</fieldset>
 
-					<div class="row mb-3">
+					<fieldset class="row mb-3">
 						<label
 							for="precio"
 							class="col-sm-2 col-form-label col-form-label-sm"
@@ -143,10 +156,13 @@
 								type="number"
 								class="form-control form-control-sm"
 								id="precio"
-								placeholder="Precio del instrumento cuando entraste al mercado" />
+								placeholder="Precio del instrumento cuando entraste al mercado" 
+								required="required"
+								oninvalid="this.setCustomValidity('Indica el precio del instrumento')"
+								oninput="this.setCustomValidity('')"/>
 						</div>
-					</div>
-					<div class="row mb-3">
+					</fieldset>
+					<fieldset class="row mb-3">
 						<label
 							for="spread"
 							class="col-sm-2 col-form-label col-form-label-sm"
@@ -157,10 +173,13 @@
 								type="number"
 								class="form-control form-control-sm"
 								id="spread"
-								placeholder="Spread del instrumento para calcular la comisión de entrada y salida" />
+								placeholder="Spread del instrumento para calcular la comisión de entrada y salida" 
+								required="required"
+								oninvalid="this.setCustomValidity('Indica el spread')"
+								oninput="this.setCustomValidity('')"/>
 						</div>
-					</div>
-					<div class="row mb-3">
+					</fieldset>
+					<fieldset class="row mb-3">
 						<label
 							for="variacion"
 							class="col-sm-2 col-form-label col-form-label-sm"
@@ -171,10 +190,13 @@
 								type="number"
 								class="form-control form-control-sm"
 								id="variacion"
-								placeholder="Variación porcentual del precio en la ultima sesión. Si es 2.53% escribir solo 2.53" />
+								placeholder="Variación porcentual del precio en la ultima sesión. Si es 2.53% escribir solo 2.53"
+								required="required"
+								oninvalid="this.setCustomValidity('Indica la última variación porcentual del precio')"
+								oninput="this.setCustomValidity('')" />
 						</div>
-					</div>
-					<div class="row mb-3">
+					</fieldset>
+					<fieldset class="row mb-3">
 						<label for="rrr" class="col-sm-2 col-form-label col-form-label-sm"
 							>RRR</label
 						>
@@ -183,17 +205,21 @@
 								type="number"
 								class="form-control form-control-sm"
 								id="rrr"
-								placeholder="Relación de Riesgo y Recompensa de tu entrada" />
+								placeholder="Relación de Riesgo y Recompensa de tu entrada" 
+								required="required"
+								oninvalid="this.setCustomValidity('Indica tu RRR')"
+								oninput="this.setCustomValidity('')"/>
 						</div>
-					</div>
-					<div class="d-grid gap-2 col-12 mx-auto">
-						<button
-							type="button"
+					</fieldset>
+					<fieldset class="d-grid gap-2 col-12 mx-auto">
+						<input
+							type="submit"
 							class="btn btn-outline-info"
-							id="btnAgregarEntrada">
-							Presiona para ingresar entrada en la tabla
-						</button>
-					</div>
+							id="btnAgregarEntrada"
+							value="Presiona para ingresar entrada en la tabla">
+							
+						</input>
+					</fieldset>
 				</form>
 			</div>
 			<div class="d-flex align-items-center divider my-5"></div>
