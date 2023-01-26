@@ -27,5 +27,8 @@
     "node-sass": "^8.0.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.2.0"
   }
 }
