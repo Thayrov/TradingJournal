@@ -9,15 +9,15 @@ const Header = () => {
 <div class="d-flex align-items-center divider"></div>
 <div class="d-flex justify-content-evenly">
     <ul
-        class="nav nav-pills nav-fill me-auto mb-2 mb-md-0 ms-auto flex-md-row flex-sm-column fs-md-1 fs-sm-5">
-        <li class="px-5 nav-item">
+        class="nav nav-pills nav-fill me-auto my-2 mb-md-0 ms-auto flex-md-row flex-sm-column fs-md-1 fs-sm-5">
+        <li class="px-5 nav-item py-1">
             <a
                 class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
                 href="calculadora.html"
                 >Calculadora</a
             >
         </li>
-        <li class="px-5 nav-item">
+        <li class="px-5 nav-item py-1">
             <a
                 class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
                 aria-current="page"
@@ -25,14 +25,14 @@ const Header = () => {
                 >Journal</a
             >
         </li>
-        <li class="px-5 nav-item">
+        <li class="px-5 nav-item py-1">
             <a
                 class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
                 href="mercados.html"
                 >Mercados</a
             >
         </li>
-        <li class="px-5 nav-item">
+        <li class="px-5 nav-item py-1">
             <a
                 class="nav-link text-decoration-none text-white title fw-light cabecera__nav__a"
                 href="contacto.html"
@@ -40,6 +40,7 @@ const Header = () => {
             >
         </li>
     </ul>
-</div>`;
+</div>
+`;
 };
 Header();
