@@ -85,8 +85,6 @@ class EntradaMercado {
             <td>$${this.profitTotal}</td>
             <td>${this.ratio2}</td>
             <td>${this.risk}%</td>
-            </tr>
-            
-`);
+            </tr>`);
 	}
 }

@@ -1,29 +1,5 @@
-(() => {
-	'use strict';
-
-	// Fetch all the forms we want to apply custom Bootstrap validation styles to
-	const forms = document.querySelectorAll('.needs-validation');
-
-	// Loop over them and prevent submission
-	Array.from(forms).forEach(form => {
-		form.addEventListener(
-			'submit',
-			event => {
-				if (!form.checkValidity()) {
-					event.preventDefault();
-					event.stopPropagation();
-				}
-
-				form.classList.add('was-validated');
-			},
-			false,
-		);
-	});
-})();
-
 //  Función que toma entrada de datos del usuario
-const addEntrada = start => {
-	start.preventDefault();
+const addEntrada = () => {
 	const entrada = new EntradaMercado(
 		(date = new Date(document.getElementById('fecha').value).toDateString()),
 		(balance = parseFloat(document.getElementById('balance').value)),
@@ -55,19 +31,60 @@ const addEntrada = start => {
 		)),
 		(risk = parseFloat(calcRisk(lossTotal, balance)).toFixed(twoDecimals)),
 	);
+
 	//  Imprimir datos en tabla
 	entrada.imprimirEntrada();
 	//  Guardar datos en array
 	entradas.push(entrada);
-	//  Limpiar formulario para siguiente entrada
-	document.querySelector('form').reset();
 	//  Guardar array en local storage
 	localStorage.setItem('listaEntradas', JSON.stringify(entradas));
+	//  Limpiar formulario para siguiente entrada
+	document.querySelector('form').reset();
 };
 
-//  Evento para activar función addEntrada()
+const ejecutarImpresion = () => {
+	//  Evento para activar función imprimirTabla()
+	document.addEventListener('DOMContentLoaded', () => {
+		document
+			.getElementById('btnAgregarEntrada')
+			.addEventListener('click', imprimirTabla);
+	});
+
+	//  Evento para activar función addEntrada()
+	document.addEventListener('DOMContentLoaded', () => {
+		document
+			.getElementById('btnAgregarEntrada')
+			.addEventListener('click', addEntrada);
+	});
+};
+//  Evento de Bootstrap que activa estilos de validaciones y fue modificado para activar la impresión de la tabla
+(() => {
+	('use strict');
+	const forms = document.querySelectorAll('.needs-validation');
+	Array.from(forms).forEach(form => {
+		document
+			.getElementById('btnAgregarEntrada')
+			.addEventListener('click', event => {
+				if (!form.checkValidity()) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				form.classList.add('was-validated');
+				if (form.checkValidity()) {
+					imprimirTabla();
+					addEntrada();
+				}
+			});
+	});
+})();
+
+const borrarTabla = () => {
+	document.getElementById('tabla').innerHTML = ``;
+};
+
+//  Evento para activar función borrarTabla()
 document.addEventListener('DOMContentLoaded', () => {
 	document
-		.getElementById('btnAgregarEntrada')
-		.addEventListener('submit', addEntrada);
+		.getElementById('btnLimpiarEntrada')
+		.addEventListener('click', borrarTabla);
 });
