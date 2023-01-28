@@ -74,3 +74,38 @@ var imprimirTabla = (function () {
 		}
 	};
 })();
+
+//  Imprimir tabla del Journal
+const imprimirTablaJournal = () => {
+	if (journal.length < 1) {
+		document.getElementById('tablaJournal').innerHTML = `
+		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-face-id-error" width="240" height="240" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path>
+   <path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
+   <path d="M16 4h2a2 2 0 0 1 2 2v2"></path>
+   <path d="M16 20h2a2 2 0 0 0 2 -2v-2"></path>
+   <path d="M9 10h.01"></path>
+   <path d="M15 10h.01"></path>
+   <path d="M9.5 15.05a3.5 3.5 0 0 1 5 0"></path>
+</svg>
+<h2>Aún no se han agregado entradas al Journal</h2>`;
+	} else {
+		document.getElementById('tablaJournal').innerHTML = `<table
+			class="table table-dark table-striped table-hover table-sm align-middle">
+			<thead>
+				<tr>
+					<th scope="col">Status</th>
+					<th scope="col">Fecha</th>
+					<th scope="col">Instrumento</th>
+					<th scope="col">Dirección</th>
+					<th scope="col">Precio de entrada</th>
+					<th scope="col">Tamaño del trade</th>
+					<th scope="col">Retorno($)</th>
+					<th scope="col">Retorno(%)</th>
+				</tr>
+			</thead>
+			<tbody class="table-group-divider" id="entradasJournal"></tbody>
+		</table>`;
+	}
+};

@@ -33,8 +33,9 @@ label{
     color: $header-b-color;
 }
 .foto{
-    border-radius: $round-border-radius;
+    //border-radius: $round-border-radius;
     @include sombra ($sombreado-main-gradient);  
+    width: 2rem;
 }
 .redes{
     display:block;

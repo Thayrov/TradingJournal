@@ -2,6 +2,7 @@
 const sixDecimals = 6;
 const twoDecimals = 2;
 const entradas = [];
+const journal = [];
 
 class EntradaMercado {
 	constructor(
