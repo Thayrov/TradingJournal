@@ -3,30 +3,6 @@ const sixDecimals = 6;
 const twoDecimals = 2;
 const entradas = [];
 
-let balance = document.getElementById('balance').value;
-let market = document.getElementById('instrumento').value;
-let position = document.getElementById('direccion').value;
-let date = document.getElementById('fecha').value;
-let price = document.getElementById('precio').value;
-let units = calcUnits(balance, price);
-let spread = document.getElementById('spread').value;
-let size = calcSize(price, units);
-let commission = calcCommission(spread, units);
-let change = document.getElementById('variacion').value;
-let rrr = document.getElementById('rrr').value;
-let stopLoss = calcStopLoss(position, price, change);
-let takeProfit = calcTakeProfit(position, price, change, rrr);
-let lossTotal = calcLossTotal(position, units, stopLoss, price, commission);
-let profitTotal = calcProfitTotal(
-	position,
-	units,
-	takeProfit,
-	price,
-	commission,
-);
-let rrrTotal = calcRRRTotal(profitTotal, lossTotal);
-let risk = calcRisk(lossTotal, balance);
-
 class EntradaMercado {
 	constructor(
 		date,
