@@ -79,6 +79,7 @@ var imprimirTabla = (function () {
 					<th scope="col">Posible ganancia</th>
 					<th scope="col">RRR con comisión</th>
 					<th scope="col">Riesgo</th>
+					<th scope="col">Enviar al Journal</th>
 				</tr>
 			</thead>
 			<tbody class="table-group-divider" id="entradasCalculadora"></tbody>

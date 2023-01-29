@@ -175,7 +175,7 @@ imprimirFormulario();
 
 //  Función que toma entrada de datos del usuario
 const addEntrada = () => {
-	const entrada = new EntradaMercado(
+	var entrada = new EntradaMercado(
 		(date = new Date(document.getElementById('fecha').value).toDateString()),
 		(balance = parseFloat(document.getElementById('balance').value)),
 		(market = document.getElementById('instrumento').value.toUpperCase()),
@@ -206,11 +206,11 @@ const addEntrada = () => {
 		)),
 		(risk = parseFloat(calcRisk(lossTotal, balance)).toFixed(twoDecimals)),
 	);
+	//  Guardar datos en array
+	entradas.push(entrada);
 
 	//  Imprimir datos en tabla
 	entrada.imprimirEntrada();
-	//  Guardar datos en array
-	entradas.push(entrada);
 };
 
 const ejecutarImpresion = () => {
@@ -224,7 +224,7 @@ const ejecutarImpresion = () => {
 	//  Evento para activar función addEntrada()
 	document.addEventListener('DOMContentLoaded', () => {
 		document
-			.getElementById('btnAgregarEntrada')
+			.getElementById('btnEnviarEntrada')
 			.addEventListener('click', addEntrada);
 	});
 };
@@ -366,51 +366,3 @@ const guardarEntrada = () => {
 		})();
 	}
 };
-
-//  Evento para activar función guardarEntrada()
-document
-	.getElementById('btnEnviarEntrada')
-	.addEventListener('click', guardarEntrada);
-
-/* (async () => {
-	const {value: status} = await Swal.fire({
-		title: 'Indica si ganaste o perdiste la entrada',
-		input: 'select',
-		inputOptions: {
-			win: 'Win',
-			loss: 'Loss',
-		},
-		inputPlaceholder: 'Elige una opción',
-		showCancelButton: true,
-		inputValidator: value => {
-			return new Promise(resolve => {
-				if (value === 'win'|| value === 'loss') {
-					resolve();
-				} else {
-					resolve('Elige una opción para continuar');
-				}
-			});
-		},
-	});
-
-	if (status) {
-		Swal.fire(`Tu entrada fue un: ${status}`);
-	}
-})(); */
-//  Confirmación de entrada enviada al journal
-/* const Toast = Swal.mixin({
-	toast: true,
-	position: 'top-end',
-	showConfirmButton: false,
-	timer: 3000,
-	timerProgressBar: true,
-	didOpen: (toast) => {
-	  toast.addEventListener('mouseenter', Swal.stopTimer)
-	  toast.addEventListener('mouseleave', Swal.resumeTimer)
-	}
-  })
-  
-  Toast.fire({
-	icon: 'success',
-	title: 'Signed in successfully'
-  }) */

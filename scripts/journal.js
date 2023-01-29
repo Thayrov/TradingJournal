@@ -3,12 +3,18 @@ imprimirTablaJournal();
 
 //  Falta definir de donde saca la info la tabla usando métodos en el array Entradas[]
 const addEntradaJournal = () => {
+	let date = entradas[i].date;
+	let market = entradas[i].market;
+	let position = entradas[i].position;
+	let price = entradas[i].price;
+	let size = entradas[i].size;
 	const entradaJournal = new EntradaJournal(
-		(estatus = '')((date = new Date(''.value).toDateString())),
-		(market = ''.value.toUpperCase()),
-		(position = ''.value),
-		(price = parseFloat(''.value)),
-		(size = parseFloat(calcSize(price, units)).toFixed(twoDecimals)),
+		(estatus = ''),
+		(date = date),
+		(market = market),
+		(position = position),
+		(price = price),
+		(size = size),
 		(retornoCash = parseFloat(
 			calcRetornoCash(estatus, profitTotal, lossTotal),
 		).toFixed(twoDecimals)),
