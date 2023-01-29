@@ -17,195 +17,39 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 		<link rel="stylesheet" href="../css/styles.css" />
-		<link rel="stylesheet" href="../node_modules/@sweetalert2/themes/wordpress-admin/wordpress-admin.min.css">
-
+		<link
+			rel="stylesheet"
+			href="../node_modules/@sweetalert2/themes/wordpress-admin/wordpress-admin.min.css" />
 	</head>
 
 	<body class="px-5">
-		<header class="fixed-top">
-		</header>
+		<header class="fixed-top"></header>
 		<main class="pt-5 mt-5 text-center">
 			<div class="d-flex align-items-center divider"></div>
 			<div class="pt-5">
-			<h2>Calculadora de tamaño de posición de entrada al mercado.</h2>
-			<p>
-				Con esta calculadora podrás identificar niveles de Stop Loss óptimos de
-				acuerdo a los parámetros que le brindes.
-			</p></div>
-			<div class="d-flex align-items-center divider my-5"></div>
-
-			<div class="container border-end border-start border-secondary">
-				<h2 class="fs-1 pb-2">Ingresa tus parámetros de entrada:</h2>
-				<form class="needs-validation" novalidate>
-					<fieldset class="row mb-3">
-						<label for="fecha" class="col-sm-2 col-form-label col-form-label-sm"
-							>Fecha</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="datetime-local"
-								class="form-control form-control-sm"
-								id="fecha"
-								placeholder="Fecha de tu entrada al mercado, ingresar de la siguiente manera: año, mes, día (AAAA, MM, DD)"
-								required
-							/>
-							<div class="invalid-feedback">
-								Elije una fecha.
-							</div>
-						</div>
-					</fieldset>
-					<fieldset class="row mb-3">
-						<label
-							for="balance"
-							class="col-sm-2 col-form-label col-form-label-sm"
-							>Balance</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="number"
-								class="form-control form-control-sm"
-								id="balance"
-								placeholder="Balance de tu cuenta"
-								required
-							/>
-							<div class="invalid-feedback">
-								Define tu balance.
-							</div>
-						</div>
-					</fieldset>
-					<fieldset class="row mb-3">
-						<label
-							for="instrumento"
-							class="col-sm-2 col-form-label col-form-label-sm"
-							>Instrumento</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="text"
-								class="form-control form-control-sm"
-								id="instrumento"
-								placeholder="Instrumento en el que vas a operar"
-								required
-								/>
-								<div class="invalid-feedback">
-									Determina el instrumento que operarás.
-								</div>
-						</div>
-					</fieldset>
-					<fieldset class="row mb-3">
-						<label
-							class="col-sm-2 col-form-label col-form-label-sm"
-							for="direccion"
-							>Dirección</label
-						>
-						<div class="col-sm-9">
-							<select 
-								id="direccion" 
-								class="form-select form-select-sm form-control form-control-sm" 
-								name="direccion" 
-								required
-							>
-								<option value="" disabled selected hidden>Dirección del mercado en la que entrarás</option>
-								<option value="long">Long</option>
-								<option value="short">Short</option>
-							</select>
-							<div class="invalid-feedback">
-								Elije tu posición en el mercado.
-							</div>
-						</div>
-					</fieldset>
-
-					<fieldset class="row mb-3">
-						<label
-							for="precio"
-							class="col-sm-2 col-form-label col-form-label-sm"
-							>Precio</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="number"
-								class="form-control form-control-sm"
-								id="precio"
-								placeholder="Precio del instrumento cuando entraste al mercado" 
-								required
-							/>
-							<div class="invalid-feedback">
-								Detalla el precio de entrada.
-							</div>
-						</div>
-					</fieldset>
-					<fieldset class="row mb-3">
-						<label
-							for="spread"
-							class="col-sm-2 col-form-label col-form-label-sm"
-							>Spread</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="number"
-								class="form-control form-control-sm"
-								id="spread"
-								placeholder="Spread del instrumento para calcular la comisión de entrada y salida" 
-								required
-								step="0.01"
-							/>
-							<div class="invalid-feedback">
-								Detalla el spread que te cobrarán.
-							</div>
-						</div>
-					</fieldset>
-					<fieldset class="row mb-3">
-						<label
-							for="variacion"
-							class="col-sm-2 col-form-label col-form-label-sm"
-							>Variación del precio</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="number"
-								class="form-control form-control-sm"
-								id="variacion"
-								placeholder="Variación porcentual del precio en la ultima sesión. Si es 2.53% escribir solo 2.53"
-								required
-								step="0.01"
-							/>
-							<div class="invalid-feedback">
-								Detalla la variación del precio desde el último cierre.
-							</div>
-						</div>
-					</fieldset>
-					<fieldset class="row mb-3">
-						<label for="rrr" class="col-sm-2 col-form-label col-form-label-sm"
-							>RRR</label
-						>
-						<div class="col-sm-9">
-							<input
-								type="number"
-								class="form-control form-control-sm"
-								id="rrr"
-								placeholder="Relación de Riesgo y Recompensa de tu entrada" 
-								required
-								step="0.01"
-							/>
-							<div class="invalid-feedback">
-								Determina tu RRR.
-							</div>
-						</div>
-					</fieldset>
-					<fieldset class="d-grid gap-2 col-12 mx-auto">
-						<input
-							type="button"
-							class="btn btn-outline-info"
-							id="btnAgregarEntrada"
-							value="Presiona para ingresar entrada en la tabla">
-							
-						</input>
-					</fieldset>
-				</form>
+				<h2>Calculadora de tamaño de posición de entrada al mercado.</h2>
+				<p>
+					Con esta calculadora podrás identificar niveles de Stop Loss óptimos
+					de acuerdo a los parámetros que le brindes.
+				</p>
 			</div>
 			<div class="d-flex align-items-center divider my-5"></div>
-			<div id="tabla"  class="table-responsive">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-face-id-error" width="240" height="240" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			<div
+				class="container border-end border-start border-secondary"
+				id="formulario"></div>
+			<div class="d-flex align-items-center divider my-5"></div>
+			<div id="tabla" class="table-responsive">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-face-id-error"
+					width="240"
+					height="240"
+					viewBox="0 0 24 24"
+					stroke-width="1"
+					stroke="currentColor"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 					<path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path>
 					<path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
@@ -222,19 +66,18 @@
 				<button
 					type="button"
 					class="btn btn-outline-info"
-					id="btnLimpiarEntrada">
-					Presiona para limpiar la tabla
+					id="btnEnviarEntrada">
+					Presiona para enviar la información al journal
 				</button>
 				<button
 					type="button"
 					class="btn btn-outline-info"
-					id="btnEnviarEntrada">
-					Presiona para enviar la información al journal
+					id="btnLimpiarEntrada">
+					Presiona para limpiar la tabla
 				</button>
 			</div>
 		</main>
-		<footer>
-		</footer>
+		<footer></footer>
 		<script src="../scripts/layout/header.js"></script>
 		<script src="../scripts/layout/footer.js"></script>
 		<script src="../scripts/funciones.js"></script>

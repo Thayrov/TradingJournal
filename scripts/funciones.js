@@ -37,6 +37,18 @@ const calcProfitTotal = (position, units, takeProfit, price, commission) => {
 const calcRRRTotal = (profitTotal, lossTotal) => -profitTotal / lossTotal;
 const calcRisk = (lossTotal, balance) => (-lossTotal / balance) * 100;
 
+const calcRetornoCash = (estatus, profitTotal, lossTotal) => {
+	estatus == 'win'
+		? (profitTotal = calcProfitTotal())
+		: (lossTotal = calcLossTotal());
+};
+
+const calcRetornoPerc = (estatus, balance, profitTotal, lossTotal) => {
+	estatus == 'win'
+		? (profitTotal = (balance / calcProfitTotal()) * 100)
+		: (lossTotal = (balance / calcLossTotal()) * 100);
+};
+
 //  Imprimir tabla
 var imprimirTabla = (function () {
 	var impreso = false;
@@ -79,17 +91,8 @@ var imprimirTabla = (function () {
 const imprimirTablaJournal = () => {
 	if (journal.length < 1) {
 		document.getElementById('tablaJournal').innerHTML = `
-		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-face-id-error" width="240" height="240" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path>
-   <path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
-   <path d="M16 4h2a2 2 0 0 1 2 2v2"></path>
-   <path d="M16 20h2a2 2 0 0 0 2 -2v-2"></path>
-   <path d="M9 10h.01"></path>
-   <path d="M15 10h.01"></path>
-   <path d="M9.5 15.05a3.5 3.5 0 0 1 5 0"></path>
-</svg>
-<h2>Aún no se han agregado entradas al Journal</h2>`;
+		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-face-id-error" width="240" height="240" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path><path d="M4 16v2a2 2 0 0 0 2 2h2"></path><path d="M16 4h2a2 2 0 0 1 2 2v2"></path><path d="M16 20h2a2 2 0 0 0 2 -2v-2"></path><path d="M9 10h.01"></path><path d="M15 10h.01"></path><path d="M9.5 15.05a3.5 3.5 0 0 1 5 0"></path></svg>
+		<h2>Aún no se han agregado entradas al Journal</h2>`;
 	} else {
 		document.getElementById('tablaJournal').innerHTML = `<table
 			class="table table-dark table-striped table-hover table-sm align-middle">

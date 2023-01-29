@@ -23,6 +23,9 @@ class EntradaMercado {
 		profitTotal,
 		ratio2,
 		risk,
+		status,
+		retornoCash,
+		retornoPerc,
 	) {
 		this.date = date;
 		this.balance = balance;
@@ -41,6 +44,9 @@ class EntradaMercado {
 		this.profitTotal = profitTotal;
 		this.ratio2 = ratio2;
 		this.risk = risk;
+		this.status = status;
+		this.retornoCash = retornoCash;
+		this.retornoPerc = retornoPerc;
 	}
 
 	imprimirEntrada() {
@@ -63,5 +69,53 @@ class EntradaMercado {
             <td>${this.ratio2}</td>
             <td>${this.risk}%</td>
             </tr>`);
+	}
+
+	imprimirEntradaJournal() {
+		return (document.getElementById('entradasJournal').innerHTML += `
+		<th scope="row">${this.status}</th>
+		<td>$${this.date}</td>
+		<td>${this.market}</td>
+		<td>${this.position}</td>
+		<td>$${this.price}</td>
+		<td>$${this.size}</td>
+		<td>$${this.retornoCash}</td>
+		<td>${this.retornoPerc}</td>
+		</tr>`);
+	}
+}
+
+class EntradaJournal {
+	constructor(
+		status,
+		date,
+		market,
+		position,
+		price,
+		size,
+		retornoCash,
+		retornoPerc,
+	) {
+		this.status = status;
+		this.date = date;
+		this.market = market;
+		this.position = position;
+		this.price = price;
+		this.size = size;
+		this.retornoCash = retornoCash;
+		this.retornoPerc = retornoPerc;
+	}
+
+	imprimirEntradaJournal() {
+		return (document.getElementById('entradasJournal').innerHTML += `
+		<th scope="row">${this.status}</th>
+		<td>$${this.date}</td>
+		<td>${this.market}</td>
+		<td>${this.position}</td>
+		<td>$${this.price}</td>
+		<td>$${this.size}</td>
+		<td>$${this.retornoCash}</td>
+		<td>${this.retornoPerc}</td>
+		</tr>`);
 	}
 }
