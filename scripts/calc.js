@@ -307,56 +307,70 @@ document.addEventListener('DOMContentLoaded', () => {
 		.addEventListener('click', borrarTabla);
 });
 
-const guardarEntrada = () => {
+const guardarEntradaLS = () => {
 	//  Guardar array en local storage
 	localStorage.setItem('listaEntradas', JSON.stringify(entradas));
 };
 
-//  Evento para activar función enviarEntrada()
-document
-	.getElementById('btnEnviarEntrada')
-	.addEventListener('click', async () => {
-		const {value: status} = await Swal.fire({
-			title: 'Indica si ganaste o perdiste la entrada',
-			input: 'select',
-			inputOptions: {
-				win: 'Win',
-				loss: 'Loss',
-			},
-			inputPlaceholder: 'Elige una opción',
-			showCancelButton: true,
-			inputValidator: value => {
-				return new Promise(resolve => {
-					if (value === 'win' || value === 'loss') {
-						resolve();
-					} else {
-						resolve('Elige una opción para continuar');
-					}
-				});
-			},
+const guardarEntrada = () => {
+	if (entradas.length < 1) {
+		Swal.fire({
+			title: '¿Guardar?',
+			text: '¡Aún no ingresas ningún dato!',
+			iconHtml:
+				'<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-question" width="140" height="140" viewBox="0 0 24 24" stroke-width="1" stroke="#a8fbfb" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path><path d="M10 13l0 .01"></path><path d="M10 10a1.5 1.5 0 1 0 -1.14 -2.474"></path></svg>',
+			confirmButtonColor: '#324254',
 		});
-
-		if (status) {
-			const Toast = Swal.mixin({
-				toast: true,
-				position: 'bottom-end',
-				showConfirmButton: false,
-				timer: 6000,
-				timerProgressBar: true,
-				didOpen: toast => {
-					toast.addEventListener('mouseenter', Swal.stopTimer);
-					toast.addEventListener('mouseleave', Swal.resumeTimer);
+	} else {
+		(async () => {
+			const {value: status} = await Swal.fire({
+				title: 'Indica si ganaste o perdiste la entrada',
+				input: 'select',
+				inputOptions: {
+					win: 'Win',
+					loss: 'Loss',
+				},
+				inputPlaceholder: 'Elige una opción',
+				showCancelButton: true,
+				inputValidator: value => {
+					return new Promise(resolve => {
+						if (value === 'win' || value === 'loss') {
+							resolve();
+						} else {
+							resolve('Elige una opción para continuar');
+						}
+					});
 				},
 			});
 
-			Toast.fire({
-				icon: 'success',
-				title: `Tu entrada fue un: ${status} y ahora podrás revisarla en el journal`,
-				background: '#4F6670',
-			});
-			guardarEntrada();
-		}
-	});
+			if (status) {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'bottom-end',
+					showConfirmButton: false,
+					timer: 6000,
+					timerProgressBar: true,
+					didOpen: toast => {
+						toast.addEventListener('mouseenter', Swal.stopTimer);
+						toast.addEventListener('mouseleave', Swal.resumeTimer);
+					},
+				});
+
+				Toast.fire({
+					icon: 'success',
+					title: `Tu entrada fue un: ${status} y ahora podrás revisarla en el journal`,
+					background: '#4F6670',
+				});
+				guardarEntradaLS();
+			}
+		})();
+	}
+};
+
+//  Evento para activar función guardarEntrada()
+document
+	.getElementById('btnEnviarEntrada')
+	.addEventListener('click', guardarEntrada);
 
 /* (async () => {
 	const {value: status} = await Swal.fire({
