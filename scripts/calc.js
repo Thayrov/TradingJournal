@@ -213,21 +213,6 @@ const addEntrada = () => {
 	entrada.imprimirEntrada();
 };
 
-const ejecutarImpresion = () => {
-	//  Evento para activar función imprimirTabla()
-	document.addEventListener('DOMContentLoaded', () => {
-		document
-			.getElementById('btnAgregarEntrada')
-			.addEventListener('click', imprimirTabla);
-	});
-
-	//  Evento para activar función addEntrada()
-	document.addEventListener('DOMContentLoaded', () => {
-		document
-			.getElementById('btnEnviarEntrada')
-			.addEventListener('click', addEntrada);
-	});
-};
 //  Evento de Bootstrap que activa estilos de validaciones y fue modificado para activar la impresión de la tabla
 (() => {
 	('use strict');
@@ -281,6 +266,7 @@ const borrarTabla = () => {
 			cancelButtonText: 'Cancelar',
 		}).then(result => {
 			if (result.isConfirmed) {
+				entradas = [];
 				document.getElementById(
 					'tabla',
 				).innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-face-id-error" width="240" height="240" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

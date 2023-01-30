@@ -2,7 +2,7 @@
 const sixDecimals = 6;
 const twoDecimals = 2;
 var entradas = [];
-const journal = [1];
+const journal = [];
 
 class EntradaMercado {
 	constructor(
@@ -98,16 +98,26 @@ class EntradaJournal {
 		this.retornoPerc = retornoPerc;
 	}
 
+	calcRetornoCash(estatus, profitTotal, lossTotal) {
+		estatus == 'win' ? profitTotal : lossTotal;
+	}
+
+	calcRetornoPerc(estatus, balance, profitTotal, lossTotal) {
+		estatus == 'win'
+			? (profitTotal = (balance / profitTotal) * 100)
+			: (lossTotal = (balance / lossTotal) * 100);
+	}
+
 	imprimirEntradaJournal() {
 		return (document.getElementById('entradasJournal').innerHTML += `
-		<th scope="row">${this.status}</th>
-		<td>$${this.date}</td>
+		<th scope="row">${this.estatus}</th>
+		<td>${this.date}</td>
 		<td>${this.market}</td>
 		<td>${this.position}</td>
 		<td>$${this.price}</td>
 		<td>$${this.size}</td>
 		<td>$${this.retornoCash}</td>
-		<td>${this.retornoPerc}</td>
+		<td>${this.retornoPerc.toFixed(twoDecimals)}%</td>
 		</tr>`);
 	}
 }
