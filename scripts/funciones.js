@@ -38,15 +38,13 @@ const calcRRRTotal = (profitTotal, lossTotal) => -profitTotal / lossTotal;
 const calcRisk = (lossTotal, balance) => (-lossTotal / balance) * 100;
 
 const calcRetornoCash = (estatus, profitTotal, lossTotal) => {
-	estatus == 'win'
-		? (profitTotal = calcProfitTotal())
-		: (lossTotal = calcLossTotal());
+	estatus == 'win' ? profitTotal : lossTotal;
 };
 
 const calcRetornoPerc = (estatus, balance, profitTotal, lossTotal) => {
 	estatus == 'win'
-		? (profitTotal = (balance / calcProfitTotal()) * 100)
-		: (lossTotal = (balance / calcLossTotal()) * 100);
+		? (profitTotal = (balance / profitTotal) * 100)
+		: (lossTotal = (balance / lossTotal) * 100);
 };
 
 //  Imprimir tabla

@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const guardarEntradaLS = () => {
 	//  Guardar array en local storage
-	localStorage.setItem('listaEntradas', JSON.stringify(entradas));
+	localStorage.setItem('entradaJournal', JSON.stringify(entradas));
 };
 
 const guardarEntrada = () => {
@@ -361,6 +361,13 @@ const guardarEntrada = () => {
 					title: `Tu entrada fue un: ${status} y ahora podrás revisarla en el journal`,
 					background: '#4F6670',
 				});
+
+				const asignStatus = element => {
+					status == 'win'
+						? (element[element.length - 1].estatus = 'win')
+						: (element[element.length - 1].estatus = 'loss');
+				};
+				asignStatus(entradas);
 				guardarEntradaLS();
 			}
 		})();
