@@ -1,8 +1,9 @@
 //  Variables, declaraciones y clase constructora
 const sixDecimals = 6;
 const twoDecimals = 2;
-var entradas = [];
+const entradas = [];
 const journal = [];
+const mercados = [1];
 
 class EntradaMercado {
 	constructor(
@@ -50,7 +51,7 @@ class EntradaMercado {
 	}
 
 	imprimirEntrada() {
-		return (document.getElementById('entradasCalculadora').innerHTML += `
+		return (document.getElementById('entradasCalculadora').innerHTML += `<tr>
             <th scope="row">${this.date}</th>
             <td>$${this.balance}</td>
             <td>${this.market}</td>
@@ -109,7 +110,7 @@ class EntradaJournal {
 	}
 
 	imprimirEntradaJournal() {
-		return (document.getElementById('entradasJournal').innerHTML += `
+		return (document.getElementById('entradasJournal').innerHTML += `<tr>
 		<th scope="row">${this.estatus}</th>
 		<td>${this.date}</td>
 		<td>${this.market}</td>

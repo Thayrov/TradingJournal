@@ -245,31 +245,30 @@ const addEntrada = () => {
 })();
 
 const borrarTabla = () => {
-	if (entradas.length < 1) {
-		Swal.fire({
-			title: '¿Borrar?',
-			text: '¡Aún no ingresas ningún dato!',
-			iconHtml:
-				'<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-question" width="140" height="140" viewBox="0 0 24 24" stroke-width="1" stroke="#a8fbfb" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path><path d="M10 13l0 .01"></path><path d="M10 10a1.5 1.5 0 1 0 -1.14 -2.474"></path></svg>',
-			confirmButtonColor: '#324254',
-		});
-	} else {
-		Swal.fire({
-			title: '¿Estás seguro?',
-			text: '¡No se podrá revertir esto!',
-			iconHtml:
-				'<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh-alert" width="140" height="140" viewBox="0 0 24 24" stroke-width="1" stroke="#a8fbfb" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"></path><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"></path><path d="M12 9l0 3"></path><path d="M12 15l.01 0"></path></svg>',
-			showCancelButton: true,
-			confirmButtonColor: '#324254',
-			cancelButtonColor: '#DC6856',
-			confirmButtonText: '¡Sí!',
-			cancelButtonText: 'Cancelar',
-		}).then(result => {
-			if (result.isConfirmed) {
-				entradas = [];
-				document.getElementById(
-					'tabla',
-				).innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-face-id-error" width="240" height="240" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+	entradas.length < 1
+		? Swal.fire({
+				title: '¿Borrar?',
+				text: '¡Aún no ingresas ningún dato!',
+				iconHtml:
+					'<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-question" width="140" height="140" viewBox="0 0 24 24" stroke-width="1" stroke="#a8fbfb" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path><path d="M10 13l0 .01"></path><path d="M10 10a1.5 1.5 0 1 0 -1.14 -2.474"></path></svg>',
+				confirmButtonColor: '#324254',
+		  })
+		: Swal.fire({
+				title: '¿Estás seguro?',
+				text: '¡No se podrá revertir esto!',
+				iconHtml:
+					'<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh-alert" width="140" height="140" viewBox="0 0 24 24" stroke-width="1" stroke="#a8fbfb" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"></path><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"></path><path d="M12 9l0 3"></path><path d="M12 15l.01 0"></path></svg>',
+				showCancelButton: true,
+				confirmButtonColor: '#324254',
+				cancelButtonColor: '#DC6856',
+				confirmButtonText: '¡Sí!',
+				cancelButtonText: 'Cancelar',
+		  }).then(result => {
+				if (result.isConfirmed) {
+					entradas = [];
+					document.getElementById(
+						'tabla',
+					).innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-face-id-error" width="240" height="240" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 			<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 			<path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path>
 			<path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
@@ -280,10 +279,9 @@ const borrarTabla = () => {
 			<path d="M9.5 15.05a3.5 3.5 0 0 1 5 0"></path>
 		</svg>
 		<h2>Aún no se han agregado entradas</h2>`;
-				Swal.fire('Se han borrado las entradas', 'Tu tabla está limpia');
-			}
-		});
-	}
+					Swal.fire('Se han borrado las entradas', 'Tu tabla está limpia');
+				}
+		  });
 };
 
 //  Evento para activar función borrarTabla()
@@ -294,68 +292,65 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const guardarEntradaLS = () => {
-	//  Guardar array en local storage
 	localStorage.setItem('entradaJournal', JSON.stringify(entradas));
 };
 
 const guardarEntrada = () => {
-	if (entradas.length < 1) {
-		Swal.fire({
-			title: '¿Guardar?',
-			text: '¡Aún no ingresas ningún dato!',
-			iconHtml:
-				'<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-question" width="140" height="140" viewBox="0 0 24 24" stroke-width="1" stroke="#a8fbfb" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path><path d="M10 13l0 .01"></path><path d="M10 10a1.5 1.5 0 1 0 -1.14 -2.474"></path></svg>',
-			confirmButtonColor: '#324254',
-		});
-	} else {
-		(async () => {
-			const {value: status} = await Swal.fire({
-				title: 'Indica si ganaste o perdiste la entrada',
-				input: 'select',
-				inputOptions: {
-					win: 'Win',
-					loss: 'Loss',
-				},
-				inputPlaceholder: 'Elige una opción',
-				showCancelButton: true,
-				inputValidator: value => {
-					return new Promise(resolve => {
-						if (value === 'win' || value === 'loss') {
-							resolve();
-						} else {
-							resolve('Elige una opción para continuar');
-						}
-					});
-				},
-			});
-
-			if (status) {
-				const Toast = Swal.mixin({
-					toast: true,
-					position: 'bottom-end',
-					showConfirmButton: false,
-					timer: 6000,
-					timerProgressBar: true,
-					didOpen: toast => {
-						toast.addEventListener('mouseenter', Swal.stopTimer);
-						toast.addEventListener('mouseleave', Swal.resumeTimer);
+	entradas.length < 1
+		? Swal.fire({
+				title: '¿Guardar?',
+				text: '¡Aún no ingresas ningún dato!',
+				iconHtml:
+					'<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-zoom-question" width="140" height="140" viewBox="0 0 24 24" stroke-width="1" stroke="#a8fbfb" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path><path d="M10 13l0 .01"></path><path d="M10 10a1.5 1.5 0 1 0 -1.14 -2.474"></path></svg>',
+				confirmButtonColor: '#324254',
+		  })
+		: (async () => {
+				const {value: status} = await Swal.fire({
+					title: 'Indica si ganaste o perdiste la entrada',
+					input: 'select',
+					inputOptions: {
+						win: 'Win',
+						loss: 'Loss',
+					},
+					inputPlaceholder: 'Elige una opción',
+					showCancelButton: true,
+					inputValidator: value => {
+						return new Promise(resolve => {
+							if (value === 'win' || value === 'loss') {
+								resolve();
+							} else {
+								resolve('Elige una opción para continuar');
+							}
+						});
 					},
 				});
 
-				Toast.fire({
-					icon: 'success',
-					title: `Tu entrada fue un: ${status} y ahora podrás revisarla en el journal`,
-					background: '#4F6670',
-				});
+				if (status) {
+					const Toast = Swal.mixin({
+						toast: true,
+						position: 'bottom-end',
+						showConfirmButton: false,
+						timer: 6000,
+						timerProgressBar: true,
+						didOpen: toast => {
+							toast.addEventListener('mouseenter', Swal.stopTimer);
+							toast.addEventListener('mouseleave', Swal.resumeTimer);
+						},
+					});
 
-				const asignStatus = element => {
-					status == 'win'
-						? (element[element.length - 1].estatus = 'win')
-						: (element[element.length - 1].estatus = 'loss');
-				};
-				asignStatus(entradas);
-				guardarEntradaLS();
-			}
-		})();
-	}
+					Toast.fire({
+						icon: 'success',
+						title: `Tu entrada fue un: ${status} y ahora podrás revisarla en el journal`,
+						background: '#4F6670',
+					});
+
+					const asignStatus = element => {
+						status == 'win'
+							? (element[element.length - 1].estatus = 'win')
+							: (element[element.length - 1].estatus = 'loss');
+					};
+					asignStatus(entradas);
+					guardarEntradaLS();
+				}
+		  })();
 };
